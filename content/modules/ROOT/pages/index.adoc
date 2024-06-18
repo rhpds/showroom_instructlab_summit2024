@@ -86,23 +86,41 @@ source venv/bin/activate
 
 [source,sh,role=execute,subs=attributes+]
 ----
-pip3 install git+https://github.com/instructlab/instructlab.git@stable
+pip3 install git+https://github.com/instructlab/instructlab.git@v0.17.0
 
 ----
 +
 
 NOTE: `pip install` may take some time, depending on the internet connection available at the conference or if the files have been cached locally.
 
-. From your venv environment, verify ilab is installed correctly by running the ilab command.
+
+. Check the version of `ilab` is `0.17.0`
+
 +
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab
+ilab --version
+----
++
+.You should see the following output
+
+[source,sh]
+----
+ilab, version 0.17.0
 ----
 +
 
-Assuming that everything has been installed correctly, you should see the following output:
+. Run the ilab help command to see the arguments and options available to the CLI.
++
+
+[source,sh,role=execute,subs=attributes+]
+----
+ilab --help
+----
++
+
+You should see the following output:
 +
 
 [source,sh,role=execute,subs=attributes+]
@@ -150,7 +168,7 @@ Step 1: Initialize ilab by running the following command:
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab init
+ilab config init
 ----
 .You should see the following output:
 [source,sh]
@@ -160,14 +178,14 @@ Welcome to InstructLab CLI. This guide will help you to setup your environment.
 Please provide the following values to initiate the environment [press Enter for defaults]:
 ----
 
-NOTE: When prompted to accept the `config.yaml`, hit kbd:[ENTER] 
+NOTE: When prompted to accept the `config.yaml`, hit kbd:[y] kbd:[ENTER] 
 
 [source,sh]
 ----
 Path to taxonomy repo [taxonomy]:
 ----
 
-NOTE: When prompted to provide the path to the taxonomy repo, hit kbd:[ENTER] 
+NOTE: If it prompts to provide the path to the taxonomy repo, hit kbd:[ENTER] 
 
 [source,sh]
 ----
@@ -183,7 +201,7 @@ Generating `config.yaml` in the current directory...
 Initialization completed successfully, you're ready to start using `ilab`. Enjoy!
 ----
 
-NOTE: When asked to enter a directory for the model file, use the default and hit <ENTER>
+NOTE: When asked to enter a directory for the model file, use the default and hit kbd:[ENTER]
 
 [source,sh]
 ----
@@ -196,14 +214,14 @@ Path to your model [models/merlinite-7b-lab-Q4_K_M.gguf]:
 [#download]
 === Download the model
 
-*Step 1*: Run the `ilab download` command.
+*Step 1*: Run the `ilab model download` command.
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab download --repository instructlab/granite-7b-lab-GGUF --filename=granite-7b-lab-Q4_K_M.gguf
+ilab model download --repository instructlab/granite-7b-lab-GGUF --filename=granite-7b-lab-Q4_K_M.gguf
 ----
 
-The ilab download command downloads a model from the HuggingFace instructlab organization that we will use for this workshop. 
+The ilab model download command downloads a model from the HuggingFace instructlab organization that we will use for this workshop. 
 
 The output should look like the following:
 
@@ -227,7 +245,7 @@ Serve the model by running the following command:
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab serve --model-path models/granite-7b-lab-Q4_K_M.gguf
+ilab model serve --model-path models/granite-7b-lab-Q4_K_M.gguf
 ----
 
 As you can see, the serve command can take an optional `-–model-path` argument. In this case, we want to serve the Granite model. If no model path is provided, the default value from the config.yaml file will be used. 
@@ -266,7 +284,7 @@ Now that the environment is sourced, you can begin a chat session with the ilab 
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab chat -m models/granite-7b-lab-Q4_K_M.gguf
+ilab model chat -m models/granite-7b-lab-Q4_K_M.gguf
 ----
 
 
@@ -286,7 +304,15 @@ What is openshift in 20 words or less?
 
 [source,sh,role=execute,subs=attributes+]
 ----
-What is openshift in 20 words or less?                                                                                                                                                                                         
+What is openshift in 20 words or less?                                                                 
+
+----
+
+.The answer should look something like this
+
+[source,sh]
+----
+Openshift: A container application platform for rapid deployment, management, and scaling of applications across hybrid cloud environments.                                                                                                         
 ----
 
 
@@ -302,7 +328,7 @@ Ask the model the following question using the ilab chat terminal that you have 
 
 [source,sh,role=execute,subs=attributes+]
 ----
->> What is the Instructlab project?
+What is the Instructlab project?
 ----
 .The answer will almost certainly be incorrect, as shown in the following output:
 [source,sh]
@@ -466,7 +492,7 @@ NOTE: Make sure you are still in the virtual environment indicated by the (venv)
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab diff
+ilab taxonomy diff
 ----
 .You should see the following output:
 [source,sh]
@@ -493,14 +519,14 @@ We will then serve the merlinite model, which will serve as the teacher model fo
 [source,sh,role=execute,subs=attributes+]
 ----
 cd ~/instructlab
-ilab serve --model-path models/merlinite-7b-lab-Q4_K_M.gguf
+ilab model serve --model-path models/merlinite-7b-lab-Q4_K_M.gguf
 ----
 
 We will now run the command (in the second Terminal) to generate the synthetic data:
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab generate --num-instructions 5
+ilab data generate --num-instructions 5
 ----
 
 After running this command, you should see the magic happen! InstructLab is now synthetically generating 5 examples based on the seed data you provided in the qna.yaml file. Take a look at the generated questions and answers to see what the model has created! 
@@ -609,7 +635,7 @@ NOTE: Make sure to stop the previous `ilab serve` command that may still have ru
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab serve --model-path models/ggml-ilab-pretrained-Q4_K_M.gguf
+ilab model serve --model-path models/ggml-ilab-pretrained-Q4_K_M.gguf
 ----
 
 NOTE: If you get an error message about not being able to bind to the address, simply kbd:[CTRL+C]  the `ilab serve` command that may still have running in your other terminal tab.
@@ -618,7 +644,7 @@ Start up another chat session with it:
 
 [source,sh,role=execute,subs=attributes+]
 ----
-ilab chat -m models/ggml-ilab-pretrained-Q4_K_M.gguf
+ilab model chat -m models/ggml-ilab-pretrained-Q4_K_M.gguf
 ----
 
 Verify the results by entering in the original prompt again:
