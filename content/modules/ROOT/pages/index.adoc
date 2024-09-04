@@ -151,9 +151,9 @@ Step 1: Initialize ilab by running the following command:
 ilab config init
 ----
 .You should see the following output:
-[source,sh]
+[subs=quotes]
 ----
-Found config.yaml in the current directory, do you still want to continue? [y/N]: y
+Found config.yaml in the current directory, do you still want to continue? [y/N]: **y**
 Welcome to InstructLab CLI. This guide will help you to setup your environment.
 Please provide the following values to initiate the environment [press Enter for defaults]:
 ----
