@@ -46,7 +46,6 @@ As you work with InstructLab, you will see the terms Skills and Knowledge.  What
 [#getting_started]
 == Getting started
 
-Install ilab command line interface
 We created a CLI tool called ilab that implements a local LLM developer experience and workflow. The ilab CLI is written in Python and works on the following architectures:
 
 . Apple M1/M2/M3 Mac
