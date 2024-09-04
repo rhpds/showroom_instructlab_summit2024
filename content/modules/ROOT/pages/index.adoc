@@ -271,7 +271,7 @@ You should see a chat prompt
 [subs=quotes]
 ----
 ╭───────────────────────────────────────────────────────────────────────────╮
-│ Welcome to Chat CLI w/ **MODELS/GRANITE-7B-LAB-Q4_K_M.GGUF** (type /h for help)
+│ Welcome to Chat CLI w/ **MODELS/GRANITE-7B-LAB-Q4_K_M.GGUF** (type **/h** for help)
 ╰───────────────────────────────────────────────────────────────────────────╯
 >>>
 ----
@@ -301,7 +301,6 @@ Ask the model the following question using the ilab chat terminal that you have 
 >> What is the Instructlab project?
 ----
 .The answer will almost certainly be incorrect, as shown in the following output:
-[source,sh]
 ----
 The Instructlab project, also known as the "Integrated Infrastructure Initiative for Life Sciences," is a collaborative effort between several European
 research institutions, companies, and universities aimed at improving the training and skill development of life sciences professionals. The project focuses
