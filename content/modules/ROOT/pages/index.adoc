@@ -104,7 +104,6 @@ ilab
 Assuming that everything has been installed correctly, you should see the following output:
 +
 
-[source,sh,role=execute,subs=attributes+]
 ----
 Usage: ilab [OPTIONS] COMMAND [ARGS]...
 
@@ -112,7 +111,7 @@ Usage: ilab [OPTIONS] COMMAND [ARGS]...
   CLI for interacting with InstructLab.
 
 
-  If this is your first time running ilab, it’s best to start with `ilab init`
+  If this is your first time running ilab, it's best to start with `ilab init`
   to create the environment.
 
 
