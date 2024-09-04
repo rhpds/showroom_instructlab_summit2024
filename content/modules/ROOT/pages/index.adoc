@@ -230,7 +230,6 @@ ilab model serve --model-path models/granite-7b-lab-Q4_K_M.gguf
 As you can see, the serve command can take an optional `-–model-path` argument. In this case, we want to serve the Granite model. If no model path is provided, the default value from the config.yaml file will be used. 
 Once the model is served and ready, you’ll see the following output:
 
-[source,sh]
 ----
 INFO 2024-04-23 17:16:53,903 lab.py:296 Using model '/models/granite-7b-lab-Q4_K_M.gguf' with -1 gpu-layers and 4096 max context size.
 INFO 2024-04-23 17:17:02,861 server.py:155 Starting server process, press CTRL+C to shutdown server...
