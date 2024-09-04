@@ -207,7 +207,6 @@ The output should look like the following:
 
 NOTE: *This command may not show the contents if the model is being cached on the local machine.*
 
-[source,sh]
 ----
 Downloading model from downloading model from instructlab/granite-7b-lab-GGUF@main to models...                                                                                                                                                 
 Downloading 'granite-7b-lab-Q4_K_M.gguf' to 'models/.huggingface/download/granite-7b-lab-Q4_K_M.gguf.6adeaad8c048b35ea54562c55e454cc32c63118a32c7b8152cf706b290611487.incomplete'
