@@ -179,7 +179,7 @@ NOTE: If asked if the CLI should clone the taxonomy repo, input 'y' as shown in 
 ----
 Cloning git@github.com:instruct-lab/taxonomy.git...
 Generating `config.yaml` in the current directory...
-Initialization completed successfully, you're ready to start using `ilab`. Enjoy!
+Initialization completed successfully, you’re ready to start using `ilab`. Enjoy!
 ----
 
 NOTE: When asked to enter a directory for the model file, use the default and hit <ENTER>
