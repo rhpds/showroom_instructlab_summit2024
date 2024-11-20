@@ -1,0 +1,20 @@
+---
+
+antora:
+  name: modules
+  dir: www
+  modules:
+    - name: index
+      label: What is InstructLab
+    - name: module-01
+      label: Getting Started with InstructLab
+    - name: module-02
+      label: Training and Serving a Model
+    - name: module-03
+      label: Conclusion
+tabs:
+  - name: ">_ root"
+    port: 443
+    path: /tty1
+    user: root
+    host: rhel

@@ -1,25 +1,23 @@
 ---
+
 name: modules
-title: Sample Module Title
 version: master
 nav:
   - modules/ROOT/nav.adoc
 
-experimental: true
-
+:experimental: true
 
 asciidoc:
   attributes:
     lab_name: "I'm the lab_name var"
     release-version: master
     page-pagination: true
-    my_var: "foo"
+    my_var: "foo - this is an asciidoc attribute from `content/antora.yml`"
     guid: my-guid
     ssh_user: devops
     ssh_password: devops
     ssh_command: ssh devops@bastion.{guid}.example.opentlc.com
-    page-links:
-    - url: https://redhat.com
-      text: Red Hat
-    - url: https://www.redhat.com/en/summit
-      text: Summit
+
+  extensions:
+    - ./content/lib/tab-block.js
+    - ./content/lib/remote-include-processor.js
