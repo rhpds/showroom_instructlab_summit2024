@@ -1,3 +1,6 @@
+:experimental: true
+:imagesdir: ../assets/images
+
 [#conclusion]
 == Conclusion
 

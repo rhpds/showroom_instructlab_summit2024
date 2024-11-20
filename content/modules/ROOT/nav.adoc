@@ -9,7 +9,7 @@
 ** xref:module-01.adoc#serve[Serving the model]
 ** xref:module-01.adoc#chat[Chat with the model]
 
-* xref:module-02.adoc[Training and Serving a Model]
+* xref:module-02.adoc[Enhancing a LLM with InstructLab]
 ** xref:module-02.adoc#serve_new_model[Serving the new model]
 
 * xref:module-03.adoc[Conclusion]
