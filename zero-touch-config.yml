@@ -17,4 +17,4 @@ tabs:
     port: 443
     path: /double_tty
     user: instruct
-    host: instruct
+    host: instructlab
