@@ -15,6 +15,6 @@ antora:
 tabs:
   - name: ">_ root"
     port: 443
-    path: /tty1
+    path: /double_tty
     user: root
     host: rhel
