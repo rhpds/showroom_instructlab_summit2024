@@ -13,8 +13,8 @@ antora:
     - name: module-03
       label: Conclusion
 tabs:
-  - name: ">_ root"
+  - name: "Double Terminals"
     port: 443
     path: /double_tty
-    user: root
-    host: rhel
+    user: instruct
+    host: instruct
