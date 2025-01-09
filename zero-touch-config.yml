@@ -15,7 +15,7 @@ antora:
 tabs:
   - name: "Double Terminals"
     port: 443
-    secondary_port: 444
+    secondary_port: 443
     path: /tty-top
     secondary_path: /tty-bottom
     user: instruct
