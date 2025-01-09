@@ -15,6 +15,8 @@ antora:
 tabs:
   - name: "Double Terminals"
     port: 443
-    path: /double_tty
+    secondary_port: 444
+    path: /tty-top
+    secondary_path: /tty-bottom
     user: instruct
     host: instructlab
