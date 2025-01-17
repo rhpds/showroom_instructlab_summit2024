@@ -4,11 +4,9 @@
 [#conclusion]
 == Conclusion
 
-You’ve successfully got ilab up and running. SUCCESS! Breathe in for a bit. We’re proud of you, and I dare say you’re an AI Engineer now. You’re probably wondering what the next steps are, and frankly, your guess is as good as mine, but let me give you some suggestions.
+You’ve successfully got `ilab` up and running. SUCCESS! Breathe in for a bit. We’re proud of you, and I dare say you’re an AI Engineer now. You’re probably wondering what the next steps are, and frankly, your guess is as good as mine, but let me give you some suggestions.
 
-Start playing with both skill and knowledge additions. This is to give something "new" to the model. You give it a chunk of data, something it doesn’t know about, and then train it on that. How could InstructLab-trained models help at your company? Which friend will you brag to first?
-rg
-As you can see, InstructLab is pretty straightforward and most of the time you spend will be creating the new taxonomy content.
+Start playing with both skill and knowledge additions. This is to give something "new" to the model. You give it a chunk of data, something it doesn’t know about, and then train it on that. How could InstructLab-trained models help at your company? Which friend will you brag to first? As you can see, InstructLab is pretty straightforward and most of the time you spend will be creating the new taxonomy content.
 
 Again, we’re so happy you made it this far, and remember if you have questions we are here to help, and are excited to see what you come up with!
 

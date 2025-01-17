@@ -82,6 +82,8 @@ Now, we need to create a directory where we can place our files.
 
 === Create a directory to add new knowledge
 
+Here we are going to create a directory named `instructlab` within the `knowledge` subdirectory of the taxonomy directory, using the *bottom* terminal. This is where we will place our `qna.yaml` file that contains the initial data set of questions and answers.
+
 [source,console,role=execute,subs=attributes+]
 ----
 mkdir -p /home/instruct/.local/share/instructlab/taxonomy/knowledge/instructlab/overview
@@ -93,6 +95,8 @@ mkdir -p /home/instruct/.local/share/instructlab/taxonomy/knowledge/instructlab/
 The way the taxonomy approach works is that we provide a file, named `qna.yaml`, that contains a sample data set of questions and answers. This data set will be used in the process of creating many more synthetic data examples, enough to fully influence the model's output. The important thing to understand about the `qna.yaml` file is that it must follow a specific schema for InstructLab to use it to synthetically generate more examples. 
 
 The `qna.yaml` file is placed in a folder within the `knowledge` subdirectory of the taxonomy directory. It is placed in a folder with an appropriate name that is aligned with the data topic, as you will see in the below command.
+
+NOTE: You'll run the next commands using the *bottom* terminal window.
 
 Instead of having to type a bunch of information in by hand, simply run the following command to copy the `qna.yaml` file to your taxonomy directory:
 
@@ -347,7 +351,7 @@ Now it's time to verify that this new data is curated properly.
 
 InstructLab allows you to validate your taxonomy files before generating additional data. You can accomplish this by using the `ilab taxonomy diff` command as shown below:
 
-NOTE: Make sure you are still in the virtual environment indicated by the (venv) on the command line. If not, source the `venv/bin/activate` file again.
+NOTE: Make sure you are still in the *bottom* terminal window in a virtual environment indicated by the (venv) on the command line. If not, source the `venv/bin/activate` file again.
 
 [source,console,role=execute,subs=attributes+]
 ----
@@ -371,7 +375,7 @@ However, for the purpose of this workshop we will only generate a small amount o
 
 NOTE: In the **upper** terminal window, ensure that the Granite model is no longer deployed by hitting kbd:[CTRL+C]
 
-We will now run the command (in the second, **bottom** Terminal) to generate the synthetic data. The merlinite model will serve as the **teacher** model:
+We will now run the command (in the second, **bottom** terminal) to generate the synthetic data. The merlinite model will serve as the **teacher** model:
 
 [source,console,role=execute,subs=attributes+]
 ----
