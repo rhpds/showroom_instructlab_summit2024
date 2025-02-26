@@ -41,12 +41,17 @@ WARNING: Several steps in this section involving installation and configuration 
 
 IMPORTANT: Code blocks with the *Command* titles should be exectued as normal.
 
-. Navigate to the preset InstructLab folder and activate the Python virtual environment by running the following commands:
+. Navigate to the preset InstructLab directory and activate the Python virtual environment by running the following commands:
 
 .Command
 [source,console,role=execute,subs=attributes+]
 ----
 cd ~/instructlab
+----
+
+.Command
+[source,console,role=execute,subs=attributes+]
+----
 source venv/bin/activate
 ----
 
@@ -60,7 +65,7 @@ source venv/bin/activate
 
 
 [start=2]
-. Reference of installing the command line tool using the pip command
+. Reference for using pip to install command the instructlab command line utility *ilab*:
 
 .Reference
 [source,console,subs=attributes+]
@@ -69,7 +74,7 @@ pip3 install git+https://github.com/instructlab/instructlab.git@v0.19.3
 ----
 
 [start=3]
-. From your venv environment, verify ilab is installed correctly by running the ilab command.
+. To verify the *ilab* utility has been installed, user the ilab command inside your virutal environment:
 
 .Command
 [source,console,role=execute,subs=attributes+]
@@ -78,7 +83,7 @@ ilab
 ----
 
 
-You can verify the version of your installation as well by running:
+To verify the version run the below command:
 
 .Command
 [source,console,role=execute,subs=attributes+]
@@ -87,7 +92,7 @@ ilab --version
 ----
 
 
-Assuming that everything has been installed correctly, you should see the following output:
+If everything has been installed correctly, you should see the following output:
 
 .Output
 [source,console]
@@ -128,7 +133,7 @@ Aliases:
 [#configuration]
 === Configuring ilab
 
-Now that we know that the command-line interface `ilab` is working correctly, the next step is to initialize the local environment so that we can begin working with the model. This was accomplished by issuing a simple init command.
+Now verified the installation and command-line tool, the next step is to initialize the local environment so that we can begin working with the model. This step was completed for you with the below *init* command.
 
 
 Step 1: Reference for initializing ilab:
@@ -176,7 +181,7 @@ Initialization completed successfully, you're ready to start using `ilab`. Enjoy
 [#download]
 === Download the models
 
-With the InstructLab environment configured, your next step would be to download quantized (compressed and optimized) models to your local directory. These steps have already been executed for you and are here as a reference. Granite will be used as a model server for API requests, and Merlinite will help create synthetic data to train a new model.
+With the InstructLab environment configured, the next step is to download quantized (compressed and optimized) models to your local directory. These steps have already been executed for you and are here as a reference. Granite will be used as a model server for API requests, and Merlinite will help create synthetic data to train a new model.
 
 *Step 1*: The `ilab model download` command is used to pull models from our source.
 
@@ -194,9 +199,9 @@ ilab model download --repository instructlab/granite-7b-lab-GGUF --filename=gran
 ilab model download --repository instructlab/merlinite-7b-lab-GGUF --filename=merlinite-7b-lab-Q4_K_M.gguf
 ----
 
-The `ilab model download`` command downloads a model from the HuggingFace InstructLab organization that we will use for this workshop.
+The `ilab model download` command downloads a model from the HuggingFace InstructLab organization that we used for this workshop.
 
-The output after each download command should resemble the following:
+The output after each download command resembles the following:
 
 .Reference
 [source,console]
@@ -226,7 +231,7 @@ ilab model serve --model-path /home/instruct/.cache/instructlab/models/granite-7
 
 As you can see, the serve command can take an optional `-–model-path` argument. In this case, we want to serve the Granite model. If no model path is provided, the default value from the `config.yaml` file will be used.
 
-Once the model is served and ready, you’ll see the following output:
+Once the model is served and ready, you will see the following output:
 
 .Output
 [source,console,subs=quotes]
