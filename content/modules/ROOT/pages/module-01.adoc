@@ -33,13 +33,17 @@ We anticipate support for more operating systems in the future. The system requi
 [#installation]
 === Installing ilab
 
-You will work with the Linux Terminal throughout this workshop. The terminal is an interface that allows users to communicate directly with the operating system by typing and executing commands. 
+You will work with the Linux Terminal throughout this workshop. The terminal is an interface that allows users to communicate directly with the operating system by typing and executing commands.
 
 The first thing we need to do is to source a Python virtual environment that will allow us to interact with the InstructLab command line tools. While you have two terminal windows available on your right, let's start with the *upper* window.
 
+WARNING: Several steps in this section involving installation and configuration of InstructLab were already completed for speed and security. The title "Reference" will appear above code blocks that have already been completed and will ERROR if executed. These steps are included for reference only.
+
+IMPORTANT: Code blocks with the *Command* titles should be exectued as normal.
+
 . Navigate to the preset InstructLab folder and activate the Python virtual environment by running the following commands:
 
-
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 cd ~/instructlab
@@ -48,27 +52,26 @@ source venv/bin/activate
 
 .Your prompt should now look like this
 
+.Output
 [source,console]
 ----
-(venv) [instruct@instructlab instructlab]$ 
+(venv) [instruct@instructlab instructlab]$
 ----
 
+
 [start=2]
-. Install the command line tool using the pip command
+. Reference of installing the command line tool using the pip command
 
-
-[source,console,role=execute,subs=attributes+]
+.Reference
+[source,console,subs=attributes+]
 ----
 pip3 install git+https://github.com/instructlab/instructlab.git@v0.19.3
 ----
 
-
-NOTE: `pip install` should process quickly because InstructLab is pre-installed in your environment.
-
 [start=3]
 . From your venv environment, verify ilab is installed correctly by running the ilab command.
 
-
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab
@@ -77,6 +80,7 @@ ilab
 
 You can verify the version of your installation as well by running:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab --version
@@ -85,7 +89,7 @@ ilab --version
 
 Assuming that everything has been installed correctly, you should see the following output:
 
-
+.Output
 [source,console]
 ----
 Usage: ilab [OPTIONS] COMMAND [ARGS]...
@@ -119,23 +123,25 @@ Aliases:
 ----
 
 
-*Congratulations!* You now have everything installed and are ready to dive into the world of LLM alignment!
+*Congratulations!* You now have verified the installation and are ready to dive into the world of LLM alignment!
 
 [#configuration]
 === Configuring ilab
 
-Now that we know that the command-line interface `ilab` is working correctly, the next thing we need to do is initialize the local environment so that we can begin working with the model. This is accomplished by issuing a simple init command.
+Now that we know that the command-line interface `ilab` is working correctly, the next step is to initialize the local environment so that we can begin working with the model. This was accomplished by issuing a simple init command.
 
 
-Step 1: In the same terminal window, initialize ilab by running the following command:
+Step 1: Reference for initializing ilab:
 
+.Reference
 [source,console,role=execute,subs=attributes+]
 ----
 ilab config init
 ----
 
-You should see the following output (press kbd:[ENTER] for defaults):
+NOTE: The output of this command will allow you to configure various settings and file locations. The below references these options. It is also possible to skip these by including a *--non-interactive* argument after the init command. All default values selected for the configuration of this lab.
 
+.Reference
 [source,console]
 ----
 Welcome to InstructLab CLI. This guide will help you to setup your environment.
@@ -143,11 +149,12 @@ Please provide the following values to initiate the environment [press Enter for
 Path to taxonomy repo [/home/instruct/.local/share/instructlab/taxonomy]:
 ----
 
-NOTE: You may hit kbd:[ENTER] for all default settings.
+NOTE: Press kbd:[ENTER] for all default settings.
 
+.Reference
 [source,console]
 ----
-Path to your model [/home/instruct/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf]: 
+Path to your model [/home/instruct/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf]:
 Generating `/home/instruct/.config/instructlab/config.yaml`...
 Detecting Hardware...
 We chose Nvidia 1x L4 as your designated training profile. This is for systems with 24 GB of vRAM.
@@ -155,8 +162,9 @@ This profile is the best approximation for your system based off of the amount o
 Is this profile correct? [Y/n]: Y
 ----
 
-Type `Y` as shown above or press kbd:[ENTER] to accept the training profile configuration. **For this lab**, we are using a single NVIDIA A10 GPU and this training profile is appropriate.
+NOTE: **For this lab**, we are using a single NVIDIA A10 GPU and this training profile is appropriate. Other environments may need different profiles.
 
+.Reference
 [source,console]
 ----
 Initialization completed successfully, you're ready to start using `ilab`. Enjoy!
@@ -168,28 +176,29 @@ Initialization completed successfully, you're ready to start using `ilab`. Enjoy
 [#download]
 === Download the models
 
-With the InstructLab environment configured, you will now download two different quantized (compressed and optimized) models to your local directory. Granite will be used as a model server for API requests, and Merlinite will help create synthetic data to train a new model.
+With the InstructLab environment configured, your next step would be to download quantized (compressed and optimized) models to your local directory. These steps have already been executed for you and are here as a reference. Granite will be used as a model server for API requests, and Merlinite will help create synthetic data to train a new model.
 
-*Step 1*: Run the `ilab model download` command in the same **upper** terminal window.
+*Step 1*: The `ilab model download` command is used to pull models from our source.
 
-First let's download Granite:
+Reference for Granite and Merlinite download commands:
 
-[source,console,role=execute,subs=attributes+]
+.Reference
+[source,console,subs=attributes+]
 ----
 ilab model download --repository instructlab/granite-7b-lab-GGUF --filename=granite-7b-lab-Q4_K_M.gguf
 ----
 
-One more time, let's pull down Merlinite:
-
-[source,sh,role=execute,subs=attributes+]
+.Reference
+[source,console,subs=attributes+]
 ----
 ilab model download --repository instructlab/merlinite-7b-lab-GGUF --filename=merlinite-7b-lab-Q4_K_M.gguf
 ----
 
-The `ilab model download`` command downloads a model from the HuggingFace InstructLab organization that we will use for this workshop. 
+The `ilab model download`` command downloads a model from the HuggingFace InstructLab organization that we will use for this workshop.
 
 The output after each download command should resemble the following:
 
+.Reference
 [source,console]
 ----
 Downloading model from Hugging Face: instructlab/granite-7b-lab-GGUF@main to /home/instruct/.cache/instructlab/models...
@@ -200,22 +209,26 @@ Download complete. Moving file to /home/instruct/.cache/instructlab/models/grani
 INFO 2024-09-10 16:51:52,562 huggingface_hub.file_download:1924: Download complete. Moving file to /home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_M.gguf
 ----
 
-Now the models are downloaded, we can serve and chat with the Granite model. Serving the model simply means we are going to run a server that will allow other programs to interact with the data similar to making an API call. 
+With the models downloaded, we can serve and chat with the Granite model. Serving the model simply means we are going to run a server that will allow other programs to interact with the data similar to making an API call.
+
+IMPORTANT: The code blocks marked *Reference* are complete, proceed executing each *Command* as prompted from this point on.
 
 [#serve]
 === Serving the model
 
 Let's serve the model by running the following command in the same terminal window:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab model serve --model-path /home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_M.gguf
 ----
 
-As you can see, the serve command can take an optional `-–model-path` argument. In this case, we want to serve the Granite model. If no model path is provided, the default value from the `config.yaml` file will be used. 
+As you can see, the serve command can take an optional `-–model-path` argument. In this case, we want to serve the Granite model. If no model path is provided, the default value from the `config.yaml` file will be used.
 
 Once the model is served and ready, you’ll see the following output:
 
+.Output
 [source,console,subs=quotes]
 ----
 INFO 2024-09-10 18:12:09,459 instructlab.model.serve:145: Using model '/home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_M.gguf' with -1 gpu-layers and 4096 max context size.
@@ -249,22 +262,24 @@ Because you’re serving the model in one terminal window, you will have to use 
 
 . In the *bottom* terminal window, issue the following commands:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 cd ~/instructlab
 source venv/bin/activate
 ----
 
+.Output
 .Your prompt should now look like this
 [source,console]
 ----
-(venv) [instruct@instructlab instructlab]$ 
+(venv) [instruct@instructlab instructlab]$
 ----
 
 [start=2]
 . Now that the environment is sourced, you can begin a chat session with the `ilab chat` command:
 
-
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab model chat -m /home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_M.gguf
@@ -273,6 +288,7 @@ ilab model chat -m /home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_
 
 You should see a chat prompt like the example below.
 
+.Output
 [source,console]
 ----
 ╭───────────────────────────────────────────────────────────────────────────╮
@@ -284,9 +300,10 @@ You should see a chat prompt like the example below.
 [start=3]
 . At this point, you can interact with the model by asking it a question. Example:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
-What is OpenShift in 20 words or less?  
+What is OpenShift in 20 words or less?
 ----
 
 Wait, wut? That was AWESOME!!!!! You now have your own local LLM running on this machine. That was pretty easy, huh?
