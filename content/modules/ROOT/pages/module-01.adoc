@@ -4,18 +4,22 @@
 [#getting_started]
 == Getting started with InstructLab
 
-We created a CLI tool called ilab that implements a local LLM developer experience and workflow. The ilab CLI is written in Python and works on the following architectures:
+We created a CLI tool called https://github.com/instructlab/instructlab[*ilab*] that implements a local LLM developer experience and workflow. The *ilab* CLI is written in Python and works on the following architectures:
 
 . Apple M1/M2/M3 Mac
 . Linux systems
 . Windows 11 within a WSL environment
 
-We anticipate support for more operating systems in the future. The system requirements to use the command line tool are as follows:
+Fortunately, in this workshop the command line interface and dependencies have already been installed for you. But, let's learn how this all works!
 
-. C++ compiler
-. Python 3.10, 3.11
-. Approximately 60GB disk space (entire process)
-.. Disk space requirements are dependent on several factors. Keep in mind that we will be generating data to feed to the model while also having the model locally on our system. For example, the model we are working with during this workshop is roughly 5gb in size.
+IMPORTANT: Several steps in the following section involving installation and configuration of InstructLab were completed for you. The title "Reference" will appear above code blocks that have been completed and will ERROR if executed. These steps are included for reference only.
+
+// The system requirements to use the command line tool are as follows:
+
+// . C++ compiler
+// . Python 3.10, 3.11
+// . Approximately 60GB disk space (entire process)
+// .. Disk space requirements are dependent on several factors. Keep in mind that we will be generating data to feed to the model while also having the model locally on our system. For example, the model we are working with during this workshop is roughly 5gb in size.
 
 // Use this section when leaving workshops up to reuse all day
 // === Reset your machine
@@ -36,8 +40,6 @@ We anticipate support for more operating systems in the future. The system requi
 You will work with the Linux Terminal throughout this workshop. The terminal is an interface that allows users to communicate directly with the operating system by typing and executing commands.
 
 The first thing we need to do is to source a Python virtual environment that will allow us to interact with the InstructLab command line tools. While you have two terminal windows available on your right, let's start with the *upper* window.
-
-WARNING: Several steps in this section involving installation and configuration of InstructLab were completed for you. The title "Reference" will appear above code blocks that have been completed and will ERROR if executed. These steps are included for reference only.
 
 IMPORTANT: Code blocks with the *Command* titles should be exectued as normal.
 
@@ -83,13 +85,13 @@ ilab
 ----
 
 
-To verify the *ilab* version run the below command:
+// To verify the *ilab* version run the below command:
 
-.Command
-[source,console,role=execute,subs=attributes+]
-----
-ilab --version
-----
+// .Command
+// [source,console,role=execute,subs=attributes+]
+// ----
+// ilab --version
+// ----
 
 
 If everything has been installed correctly, you should see the following output:
@@ -136,10 +138,10 @@ Aliases:
 We verified the installation and command-line tool, the next step is to initialize the local environment so that we can begin working with the model. This step was completed for you with the below *init* command.
 
 
-Step 1: Reference for initializing ilab:
+. Reference for initializing *ilab*:
 
 .Reference
-[source,console,role=execute,subs=attributes+]
+[source,console]
 ----
 ilab config init
 ----
@@ -175,7 +177,7 @@ NOTE: **For this lab**, we are using a single NVIDIA A10 GPU and this training p
 Initialization completed successfully, you're ready to start using `ilab`. Enjoy!
 ----
 
-** Several things happen during the initialization phase: A default taxonomy is created on the local file system, and a configuration file (config.yaml) is created in the 'home/instruct/.config/instructlab/' directory.
+** Several things happen during the initialization phase: A default taxonomy is created on the local file system, and a configuration file (`config.yaml`) is created in the `home/instruct/.config/instructlab/` directory.
 * The config.yaml file contains defaults we will use during this workshop. After this workshop, when you begin playing around with InstructLab, it is important to understand the contents of the configuration file to tune the parameters to your liking.
 
 [#download]
@@ -183,7 +185,7 @@ Initialization completed successfully, you're ready to start using `ilab`. Enjoy
 
 With the InstructLab environment configured, the next step is to download the quantized (compressed and optimized) models to your local directory. These steps have already been executed for you and are here as a reference. Granite will be used as a model server for API requests, and Merlinite will help create synthetic data to train a new model.
 
-*Step 1*: The `ilab model download` command is used to pull models from the source.
+. The `ilab model download` command is used to pull models from the source.
 
 Reference for Granite and Merlinite download commands:
 
@@ -221,7 +223,7 @@ IMPORTANT: The code blocks marked *Reference* are complete, proceed executing ea
 [#serve]
 === Serving the model
 
-Let's serve the model by running the following command in the same terminal window:
+. Let's serve the model by running the following command in the same terminal window:
 
 .Command
 [source,console,role=execute,subs=attributes+]

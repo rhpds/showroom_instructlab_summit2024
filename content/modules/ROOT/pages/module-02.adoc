@@ -25,7 +25,7 @@ methods.
 
 NOTE: LLMs by nature are non-deterministic. This means that even with the same prompt input, the model will produce varying responses. So, your results may vary.
 
-Wow, that was both pretty awesome and sad at the same time! Kudos for it generating a response that appears to be very accurate and it was very confident in doing so. However, it is incorrect. The description of the Instructlab project was completely wrong and although it looks detailed, some of the information it generated is not about this particular project. These errors are often referred to as “hallucinations” in the LLM space.
+Wow, that was both pretty awesome and sad at the same time! Kudos for it generating a response that appears to be very accurate and it was very confident in doing so. _However, it is incorrect_. The description of the Instructlab project was completely wrong and although it looks detailed, some of the information it generated is not about this particular project. These errors are often referred to as “hallucinations” in the LLM space.
 
 Model alignment (like you’re about to do) is one of the ways to improve a model’s answers and avoid hallucinations. In this workshop, we are going to focus on adding a new knowledge to the model so that it knows more about the Instructlab project.
 
