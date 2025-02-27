@@ -63,7 +63,22 @@ Use the **bottom** terminal and ensure you have exited the chat session by typin
 .Command
 [source,console,role=execute,subs=attributes+]
 ----
+exit
+----
+
+Next navigate into the base directory containing the taxonomy:
+
+.Command
+[source,console,role=execute,subs=attributes+]
+----
 cd /home/instruct/.local/share/instructlab
+----
+
+Use the `tree` command to view the directory structure:
+
+.Command
+[source,console,role=execute,subs=attributes+]
+----
 tree taxonomy | head -n 10
 ----
 

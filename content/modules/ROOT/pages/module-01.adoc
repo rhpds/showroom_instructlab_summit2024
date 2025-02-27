@@ -4,7 +4,7 @@
 [#getting_started]
 == Getting started with InstructLab
 
-We created a CLI tool called https://github.com/instructlab/instructlab[*ilab*] that implements a local LLM developer experience and workflow. The *ilab* CLI is written in Python and works on the following architectures:
+We created a CLI tool called https://github.com/instructlab/instructlab[*ilab*^] that implements a local LLM developer experience and workflow. The *ilab* CLI is written in Python and works on the following architectures:
 
 . Apple M1/M2/M3 Mac
 . Linux systems
