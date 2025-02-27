@@ -7,12 +7,14 @@ Now that you have a working environment, let’s examine the model's abilities b
 
 Ask the model the following question using the current ilab chat session in the **bottom** terminal:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 What is the Instructlab project?
 ----
 .The answer will almost certainly be incorrect, as shown in the following example output:
 
+.Output
 [source,console]
 ----
 The Instructlab project, also known as the "Integrated Infrastructure Initiative for Life Sciences," is a collaborative effort between several European 
@@ -31,9 +33,10 @@ Let’s get to work!
 
 When you are done exploring the model, **exit the chat** by issuing the exit command within in the chat session:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
-exit 
+exit
 ----
 
 In the other terminal window, quit serving the Granite model by typing kbd:[CTRL+C]
@@ -57,13 +60,16 @@ We are now going to leverage the taxonomy structure to teach the model about the
 
 Use the **bottom** terminal and ensure you have exited the chat session by typing `exit`.
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 cd /home/instruct/.local/share/instructlab
 tree taxonomy | head -n 10
 ----
 
-.You should see the taxonomy directory listed as shown below:
+You should see the taxonomy directory listed as shown below:
+
+.Output
 [source,texinfo]
 ----
 taxonomy
@@ -84,6 +90,7 @@ Now, we need to create a directory where we can place our files.
 
 Here we are going to create a directory named `instructlab` within the `knowledge` subdirectory of the taxonomy directory, using the *bottom* terminal. This is where we will place our `qna.yaml` file that contains the initial data set of questions and answers.
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 mkdir -p /home/instruct/.local/share/instructlab/taxonomy/knowledge/instructlab/overview
@@ -92,7 +99,7 @@ mkdir -p /home/instruct/.local/share/instructlab/taxonomy/knowledge/instructlab/
 [#add_qna]
 === Add a new knowledge
 
-The way the taxonomy approach works is that we provide a file, named `qna.yaml`, that contains a sample data set of questions and answers. This data set will be used in the process of creating many more synthetic data examples, enough to fully influence the model's output. The important thing to understand about the `qna.yaml` file is that it must follow a specific schema for InstructLab to use it to synthetically generate more examples. 
+The way the taxonomy approach works is that we provide a file, named `qna.yaml`, that contains a sample data set of questions and answers. This data set will be used in the process of creating many more synthetic data examples, enough to fully influence the model's output. The important thing to understand about the `qna.yaml` file is that it must follow a specific schema for InstructLab to use it to synthetically generate more examples.
 
 The `qna.yaml` file is placed in a folder within the `knowledge` subdirectory of the taxonomy directory. It is placed in a folder with an appropriate name that is aligned with the data topic, as you will see in the below command.
 
@@ -100,6 +107,7 @@ NOTE: You'll run the next commands using the *bottom* terminal window.
 
 Instead of having to type a bunch of information in by hand, simply run the following command to copy the `qna.yaml` file to your taxonomy directory:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 cp -av ~/files/instructlab_knowledge/qna.yaml /home/instruct/.local/share/instructlab/taxonomy/knowledge/instructlab/overview
@@ -107,13 +115,15 @@ cp -av ~/files/instructlab_knowledge/qna.yaml /home/instruct/.local/share/instru
 
 You can then verify the file was correctly copied by issuing the following command which will display the first 10 lines of the file:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 head /home/instruct/.local/share/instructlab/taxonomy/knowledge/instructlab/overview/qna.yaml
 ----
 
-During this workshop, we don’t expect you to type all of this information in by hand - we are including the content here for your reference. 
+During this workshop, we don’t expect you to type all of this information in by hand - we are including the content here for your reference.
 
+.Output
 [source,yaml]
 ----
 ---
@@ -353,11 +363,15 @@ InstructLab allows you to validate your taxonomy files before generating additio
 
 NOTE: Make sure you are still in the *bottom* terminal window in a virtual environment indicated by the (venv) on the command line. If not, source the `venv/bin/activate` file again.
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab taxonomy diff
 ----
-.You should see the following output:
+
+You should see the following output:
+
+.Output
 [source,console]
 ----
 knowledge/instructlab/overview/qna.yaml
@@ -377,6 +391,7 @@ NOTE: In the **upper** terminal window, ensure that the Granite model is no long
 
 We will now run the command (in the second, **bottom** terminal) to generate the synthetic data. The merlinite model will serve as the **teacher** model:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab data generate --model /home/instruct/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf --sdg-scale-factor 5 --gpus 1
@@ -390,6 +405,7 @@ InstructLab is now synthetically generating data based on the seed data you prov
 
 You will see output on your screen indicating the data is being generated, like below:
 
+.Output
 [source,console]
 ----
 INFO 2024-10-21 02:01:23,450 instructlab.sdg.llmblock:51: LLM server supports batched inputs: False
@@ -400,7 +416,7 @@ INFO 2024-10-21 02:01:23,450 instructlab.sdg.pipeline:198: Dataset({
 })
 ----
 
-This will take several minutes to complete.
+IMPORTANT: This step will take several minutes to complete.
 
 Once the process completes and we have generated additional data, we can use the `ilab model train` command to incorporate this dataset with the model.
 
@@ -408,6 +424,7 @@ If you are curious to view the data generated, the SDG process creates a jsonl f
 
 Feel free to explore. You must input your exact file name in the following command:
 
+.Command
 [source,console]
 ----
 cat /home/instruct/.local/share/instructlab/datasets/knowledge_train_msgs[YOUR_TIMESTAMP].jsonl
@@ -428,6 +445,7 @@ Due to the time constraints of this lab, we will not actually be training the mo
 
 We have provided a model that has already been through this process in your demo system. First, if you have any processes running in either terminal window, type kbd:[CTRL+C] to exit. In order to serve the newly trained model you can now run the following in the *upper* command window:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab model serve --model-path /home/instruct/files/ggml-ilab-pretrained-Q4_K_M.gguf
@@ -435,6 +453,7 @@ ilab model serve --model-path /home/instruct/files/ggml-ilab-pretrained-Q4_K_M.g
 
 Start up another chat session with this newly served model in the **other** terminal where the model is not being served. You will add the kbd:[--greedy-mode] flag to minimize any potential response randomness or variation in the generated response:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab model chat --greedy-mode -m ~/files/ggml-ilab-pretrained-Q4_K_M.gguf
@@ -442,6 +461,7 @@ ilab model chat --greedy-mode -m ~/files/ggml-ilab-pretrained-Q4_K_M.gguf
 
 Verify the results by entering in the original prompt again:
 
+.Command
 [source,console,role=execute,subs=attributes+]
 ----
 What is the Instructlab project?
@@ -449,7 +469,7 @@ What is the Instructlab project?
 
 The answer should be better and more accurate! If all went right, and I am sure it did ;) the output should look something like this: (keep in mind that your output will look different due to the nature of large language models)
 
-
+.Output
 [source,console]
 ----
 The Instructlab project is a cutting-edge research initiative driven by the community of developers who collaborate on the project. The
