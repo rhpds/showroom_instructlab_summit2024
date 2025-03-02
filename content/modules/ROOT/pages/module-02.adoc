@@ -12,7 +12,8 @@ Ask the model the following question using the current ilab chat session in the 
 ----
 What is the Instructlab project?
 ----
-.The answer will almost certainly be incorrect, as shown in the following example output:
+
+The answer will almost certainly be incorrect, as shown in the following example output:
 
 .Output
 [source,console]
