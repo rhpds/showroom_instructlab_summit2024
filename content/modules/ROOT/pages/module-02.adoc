@@ -402,7 +402,21 @@ InstructLab will generate X number of additional questions and answers based on 
 
 However, for the purpose of this workshop we will only generate a small amount of additional samples to give you a sense of how it works.
 
-NOTE: In the **upper** terminal window, ensure that the Granite model is no longer deployed by hitting kbd:[CTRL+C]
+First, stop the Granite model in the **upper** terminal window with the kbd:[CTRL+C] keystrokes:
+
+.Command
+[source,console,subs=+macros]
+----
+kbd:[CTRL+C]
+----
+
+Verify the model has stopped with the following output:
+
+.Output
+[source,console,subs=attributes+]
+----
+^C INFO 2025-03-02 16:50:48,806 instructlab.model.serve:213: Server terminated by keyboard
+----
 
 We will now run the command (in the second, **bottom** terminal) to generate the synthetic data. The merlinite model will serve as the **teacher** model:
 
@@ -435,14 +449,16 @@ IMPORTANT: This step will take several minutes to complete.
 
 Once the process completes and we have generated additional data, we can use the `ilab model train` command to incorporate this dataset with the model.
 
-If you are curious to view the data generated, the SDG process creates a jsonl file located in the `/home/instruct/.local/share/instructlab/datasets` directory named **knowledge_train_msgs[TIMESTAMP].jsonl**
+If you are curious to view the data generated, the SDG process creates a jsonl file located in the `/home/instruct/.local/share/instructlab/datasets` directory named `knowledge_train_msgs[TIMESTAMP].jsonl`
 
-Feel free to explore. You must input your exact file name in the following command:
+Feel free to explore this file:
 
-.Command
-[source,console]
+NOTE: The below command uses a wildcard to find the file as it is the only one present. Outside this lab environment you will need to find the appropriate time stamp.
+
+.Command (Optional)
+[source,console,role=execute,subs=attributes+]
 ----
-cat /home/instruct/.local/share/instructlab/datasets/knowledge_train_msgs[YOUR_TIMESTAMP].jsonl
+cat /home/instruct/.local/share/instructlab/datasets/knowledge_train_msgs*.jsonl
 ----
 
 Now that we have generated additional data, we would now use the ilab train command to incorporate this data set with the model.
@@ -451,19 +467,32 @@ NOTE: Using a scale factor of 5 is generally not enough synthetic data to effect
 
 Once the new data has been generated, the next step is to train the model with the updated knowledge. This is performed with the `ilab model train` command.
 
-NOTE: Training using the newly generated data is a time and resource intensive task. Depending on the number of epochs desired, internet connection for safetensor downloading, and other factors, it can take many hours and is highly dependent on the hardware used. 
+NOTE: Training using the newly generated data is a time and resource intensive task. Depending on the number of epochs desired, internet connection for safetensor downloading, and other factors, it can take many hours and is highly dependent on the hardware used.
 
 [#serve_new_model]
 == Serving the new model
 
 Due to the time constraints of this lab, we will not actually be training the model! This would require a full-scale synthetic data generation process and a training run that could take many hours. You probably have smoewhere else you need to be, so we are going to show you the end results without making you wait.
 
-We have provided a model that has already been through this process in your demo system. First, if you have any processes running in either terminal window, type kbd:[CTRL+C] to exit. In order to serve the newly trained model you can now run the following in the *upper* command window:
+We have provided a model that has already been through this process in your demo system. First, if you have any processes running in either terminal window, type kbd:[CTRL+C] to exit.
+
+To serve the newly trained model run the following in the *upper* command window:
 
 .Command
 [source,console,role=execute,subs=attributes+]
 ----
 ilab model serve --model-path /home/instruct/files/ggml-ilab-pretrained-Q4_K_M.gguf
+----
+
+Once the model started you will see a similiar output to the following:
+
+.Output
+[source,console,subs=attributes+]
+----
+<<< Output Abridged >>>
+
+INFO 2024-09-10 18:12:16,026 instructlab.model.backends.llama_cpp:193: Starting server process, press CTRL+C to shutdown server...
+INFO 2024-09-10 18:12:16,026 instructlab.model.backends.llama_cpp:194: After application startup complete see http://127.0.0.1:8000/docs for API.
 ----
 
 Start up another chat session with this newly served model in the **other** terminal where the model is not being served. You will add the kbd:[--greedy-mode] flag to minimize any potential response randomness or variation in the generated response:

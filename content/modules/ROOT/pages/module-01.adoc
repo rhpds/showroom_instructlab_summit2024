@@ -57,7 +57,7 @@ cd ~/instructlab
 source venv/bin/activate
 ----
 
-.Your prompt should now look like this
+Your prompt should now look like this:
 
 .Output
 [source,console]
@@ -178,7 +178,7 @@ Initialization completed successfully, you're ready to start using `ilab`. Enjoy
 ----
 
 ** Several things happen during the initialization phase: A default taxonomy is created on the local file system, and a configuration file (`config.yaml`) is created in the `home/instruct/.config/instructlab/` directory.
-* The config.yaml file contains defaults we will use during this workshop. After this workshop, when you begin playing around with InstructLab, it is important to understand the contents of the configuration file to tune the parameters to your liking.
+* The `config.yaml` file contains defaults we will use during this workshop. After this workshop, when you begin playing around with InstructLab, it is important to understand the contents of the configuration file to tune the parameters to your liking.
 
 [#download]
 === Download the models
@@ -283,8 +283,9 @@ cd ~/instructlab
 source venv/bin/activate
 ----
 
+Your command prompt should now look like this:
+
 .Output
-.Your prompt should now look like this
 [source,console]
 ----
 (venv) [instruct@instructlab instructlab]$
@@ -320,7 +321,7 @@ You should see a chat prompt like the example below.
 What is OpenShift in 20 words or less?
 ----
 
-Wait, wut? That was AWESOME!!!!! You now have your own local LLM running on this machine. That was pretty easy, huh?
+Wait, what? That was AWESOME!!!!! You now have your own local LLM running on this machine. That was pretty easy, huh?
 
 === Next Steps
 
