@@ -12,7 +12,8 @@ We created a CLI tool called https://github.com/instructlab/instructlab[*ilab*^]
 
 Fortunately, in this workshop the command line interface and dependencies have already been installed for you. But, let's learn how this all works!
 
-IMPORTANT: Several steps in the following section involving installation and configuration of InstructLab were completed for you. The title "Reference" will appear above code blocks that have been completed and will ERROR if executed. These steps are included for reference only.
+[.lead]
+IMPORTANT: Several steps in the following section involving installation and configuration of InstructLab were completed for you. The title *Reference* will appear above code blocks that have been completed and will *ERROR if executed*. These steps are included for reference only.
 
 // The system requirements to use the command line tool are as follows:
 
