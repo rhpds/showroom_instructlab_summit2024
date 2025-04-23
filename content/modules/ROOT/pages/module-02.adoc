@@ -370,29 +370,29 @@ document:
 .. `**commit**`: The SHA of the commit in your repository with your knowledge markdown files.
 .. `**patterns**`: A list of glob patterns specifying the markdown files in your repository. Any glob pattern that starts with *, such as *.md, must be quoted due to YAML rules. For example, *.md.
 
-Now it's time to verify that this new data is curated properly.
+// Now it's time to verify that this new data is curated properly.
 
-[#verify]
-=== Verify your new knowledge addition
+// [#verify]
+// === Verify your new knowledge addition
 
-InstructLab allows you to validate your taxonomy files before generating additional data. You can accomplish this by using the `ilab taxonomy diff` command as shown below:
+// InstructLab allows you to validate your taxonomy files before generating additional data. You can accomplish this by using the `ilab taxonomy diff` command as shown below:
 
-NOTE: Make sure you are still in the *bottom* terminal window in a virtual environment indicated by the (venv) on the command line. If not, source the `venv/bin/activate` file again.
+// NOTE: Make sure you are still in the *bottom* terminal window in a virtual environment indicated by the (venv) on the command line. If not, source the `venv/bin/activate` file again.
 
-.Command
-[source,console,role=execute,subs=attributes+]
-----
-ilab taxonomy diff
-----
+// .Command
+// [source,console,role=execute,subs=attributes+]
+// ----
+// ilab taxonomy diff
+// ----
 
-You should see the following output:
+// You should see the following output:
 
-.Output
-[source,console]
-----
-knowledge/instructlab/overview/qna.yaml
-Taxonomy in /home/instruct/.local/share/instructlab/taxonomy is valid :)
-----
+// .Output
+// [source,console]
+// ----
+// knowledge/instructlab/overview/qna.yaml
+// Taxonomy in /home/instruct/.local/share/instructlab/taxonomy is valid :)
+// ----
 
 [#sdg]
 === Generate synthetic data
