@@ -414,7 +414,7 @@ kbd:[CTRL+C]
 Verify the model has stopped with the following output:
 
 .Output
-[source,console,subs=attributes+]
+[source,console,copy=false,subs=attributes+]
 ----
 ^C INFO 2025-03-02 16:50:48,806 instructlab.model.serve:213: Server terminated by keyboard
 ----
@@ -436,7 +436,7 @@ InstructLab is now synthetically generating data based on the seed data you prov
 You will see output on your screen indicating the data is being generated, like below:
 
 .Output
-[source,console]
+[source,console,copy=false]
 ----
 INFO 2024-10-21 02:01:23,450 instructlab.sdg.llmblock:51: LLM server supports batched inputs: False
 INFO 2024-10-21 02:01:23,450 instructlab.sdg.pipeline:197: Running block: gen_knowledge
@@ -488,7 +488,7 @@ ilab model serve --model-path /home/instruct/files/ggml-ilab-pretrained-Q4_K_M.g
 Once the model started you will see a similiar output to the following:
 
 .Output
-[source,console,subs=attributes+]
+[source,console,copy=false,subs=attributes+]
 ----
 <<< Output Abridged >>>
 
@@ -515,7 +515,7 @@ What is the Instructlab project?
 The answer should be better and more accurate! If all went right, and I am sure it did ;) the output should look something like this: (keep in mind that your output will look different due to the nature of large language models)
 
 .Output
-[source,console]
+[source,console,copy=false]
 ----
 The Instructlab project is a cutting-edge research initiative driven by the community of developers who collaborate on the project. The
 primary goal of Instructlab is to create a robust, versatile, and accessible foundation for various generative AI applications, including

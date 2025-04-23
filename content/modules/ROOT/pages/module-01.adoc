@@ -61,7 +61,7 @@ source venv/bin/activate
 Your prompt should now look like this:
 
 .Output
-[source,console]
+[source,console,copy=false]
 ----
 (venv) [instruct@instructlab instructlab]$
 ----
@@ -98,7 +98,7 @@ ilab
 If everything has been installed correctly, you should see the following output:
 
 .Output
-[source,console]
+[source,console,copy=false]
 ----
 Usage: ilab [OPTIONS] COMMAND [ARGS]...
 
@@ -237,7 +237,7 @@ Above we used the optional `-–model-path` argument to point directly to serve 
 Once the model is served and ready, you will see the following output:
 
 .Output
-[source,console,subs=quotes]
+[source,console,subs=quotes,copy=false]
 ----
 INFO 2024-09-10 18:12:09,459 instructlab.model.serve:145: Using model '/home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_M.gguf' with -1 gpu-layers and 4096 max context size.
 INFO 2024-09-10 18:12:09,459 instructlab.model.serve:149: Serving model '/home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_M.gguf' with llama-cpp
@@ -287,7 +287,7 @@ source venv/bin/activate
 Your command prompt should now look like this:
 
 .Output
-[source,console]
+[source,console,copy=false]
 ----
 (venv) [instruct@instructlab instructlab]$
 ----
@@ -305,7 +305,7 @@ ilab model chat -m /home/instruct/.cache/instructlab/models/granite-7b-lab-Q4_K_
 You should see a chat prompt like the example below.
 
 .Output
-[source,console]
+[source,console,copy=false]
 ----
 ╭───────────────────────────────────────────────────────────────────────────╮
 │ Welcome to InstructLab Chat w/ GRANITE-7B-LAB-Q4_K_M.GGUF (type /h for help)                                                                                                                                      
